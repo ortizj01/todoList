@@ -1,0 +1,13 @@
+📝 Lista de Tareas Interactiva
+Este es un proyecto sencillo que permite crear y organizar tareas usando una interfaz amigable. Las tareas se pueden mover entre distintas categorías (pendientes, completadas, aplazadas, rechazadas) arrastrándolas con el mouse. Ideal para practicar conceptos básicos de desarrollo web.
+
+🛠 Tecnologías utilizadas
+HTML5 – Estructura principal de la aplicación.
+
+CSS3 – Estilos personalizados para las zonas de tareas.
+
+Bootstrap 5 – Diseño responsivo y componentes como modales y botones.
+
+JavaScript – Lógica de interacción y funcionalidad drag & drop.
+
+Node.js – Servidor backend para levantar la aplicación o manejar peticiones si se extiende.
