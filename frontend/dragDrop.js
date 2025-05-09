@@ -1,3 +1,5 @@
+const API_URL = 'https://todolist-e1a1.onrender.com/api/tareas';
+
 document.getElementById('btnGuardarTarea').addEventListener('click', async () => {
   const nombre = document.getElementById('recipient-name').value;
 
@@ -7,7 +9,7 @@ document.getElementById('btnGuardarTarea').addEventListener('click', async () =>
   }
 
   try {
-    const res = await fetch('http://localhost:3000/api/tareas', {
+    const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nombre, estado: 'pendiente' }) 
@@ -28,10 +30,8 @@ document.getElementById('btnGuardarTarea').addEventListener('click', async () =>
   }
 });
 
-
-
 async function cargarTareas() {
-  const res = await fetch('http://localhost:3000/api/tareas');
+  const res = await fetch(API_URL);
   const tareas = await res.json();
 
   // Limpia columnas
@@ -50,7 +50,6 @@ async function cargarTareas() {
     el.addEventListener('dragstart', ev => {
       ev.dataTransfer.setData("text", ev.target.id);
     });
-
 
     switch (t.estado) {
       case 'pendiente':
@@ -78,7 +77,7 @@ async function soltarTarea(ev, nuevoEstado) {
   const idTarea = ev.dataTransfer.getData("text");
 
   try {
-    const res = await fetch(`http://localhost:3000/api/tareas/${idTarea}`, {
+    const res = await fetch(`${API_URL}/${idTarea}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ estado: nuevoEstado })
@@ -94,6 +93,5 @@ async function soltarTarea(ev, nuevoEstado) {
     alert('No se pudo mover la tarea. Intenta de nuevo.');
   }
 }
-
 
 cargarTareas();
